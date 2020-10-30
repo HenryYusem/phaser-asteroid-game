@@ -2,7 +2,7 @@ import { Scene } from 'phaser';
 import Ship from './ship';
 import Keyboard from './keyboard';
 
-export default class SnakeScene extends Scene {
+export default class AsteroidsScene extends Scene {
 
   /**
    * Use this function to load images which can be used in sprites
@@ -29,8 +29,23 @@ export default class SnakeScene extends Scene {
    * autonomousPeriodic and teleopPeriodic functions in robot code
    */
   update(time, delta) {
+    
 
+if (this.keyboard.isLeftPressed()) {
 
+} 
+
+if (this.keyboard.isRightPressed()) {
+
+} 
+
+if (this.keyboard.isDownPressed()) {
+
+} 
+
+if (this.keyboard.isUpPressed()) {
+
+}
   }
 
 }
