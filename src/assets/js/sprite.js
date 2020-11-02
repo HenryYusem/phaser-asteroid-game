@@ -48,7 +48,7 @@ export default class Sprite {
 
   setAcceleration(x, y) {
     if (!this.isDestroyed()) {
-      this.sprite.setAcceleration(x, y);
+      
     }
   }
 
@@ -59,8 +59,16 @@ export default class Sprite {
    */
   setForwardAcceleration(acceleration) {
     if (!this.isDestroyed()) {
-        Math.cos(this.getRotation());
+        let x = Math.cos(this.getRotation());
+        let y = Math.sin(this.getRotation());
+        this.ship.setAcceleration(x, y);
     }
+  }
+
+  setForwardVelocity(velocity) {
+        let x = Math.cos(this.getRotation());
+        let y = Math.sin(this.getRotation());
+        this.ship.setVelocity(x, y);
   }
 
   setVelocity(x, y) {

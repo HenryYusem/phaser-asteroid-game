@@ -29,14 +29,15 @@ export default class AsteroidsScene extends Scene {
    * autonomousPeriodic and teleopPeriodic functions in robot code
    */
   update(time, delta) {
-    
+this.ship.setAcceleration(0, 0);
+this.ship.setAngularVelocity(0);
 
 if (this.keyboard.isLeftPressed()) {
-
+    this.ship.setAngularVelocity(-180);
 } 
 
 if (this.keyboard.isRightPressed()) {
-
+    this.ship.setAngularVelocity(180);
 } 
 
 if (this.keyboard.isDownPressed()) {
@@ -44,7 +45,10 @@ if (this.keyboard.isDownPressed()) {
 } 
 
 if (this.keyboard.isUpPressed()) {
-
+    let velocity = 25;
+    let acceleration = 25;
+    this.ship.setForwardVelocity(velocity);
+    this.ship.setForwardAcceleration(acceleration);
 }
   }
 
