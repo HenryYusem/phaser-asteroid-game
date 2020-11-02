@@ -22,6 +22,7 @@ export default class AsteroidsScene extends Scene {
     this.shipSpeedLabel = this.add.text(10, 10, '', { font: '16px Courier', fill: '#00ff00' });
     this.ship = new Ship(this, 400, 300);
     this.keyboard = new Keyboard(this);
+    this.ship.setMaxVelocity(350);
   }
 
   /**
@@ -29,8 +30,9 @@ export default class AsteroidsScene extends Scene {
    * autonomousPeriodic and teleopPeriodic functions in robot code
    */
   update(time, delta) {
-this.ship.setAcceleration(0, 0);
-this.ship.setAngularVelocity(0);
+    this.ship.setAcceleration(0, 0);
+    this.ship.setAngularVelocity(0);
+    this.ship.wrap();
 
 if (this.keyboard.isLeftPressed()) {
     this.ship.setAngularVelocity(-180);
@@ -41,14 +43,13 @@ if (this.keyboard.isRightPressed()) {
 } 
 
 if (this.keyboard.isDownPressed()) {
-
+    this.ship.setForwardVelocity(-150);
+    this.ship.setForwardAcceleration(-150);
 } 
 
 if (this.keyboard.isUpPressed()) {
-    let velocity = 25;
-    let acceleration = 25;
-    this.ship.setForwardVelocity(velocity);
-    this.ship.setForwardAcceleration(acceleration);
+    this.ship.setForwardVelocity(150);
+    this.ship.setForwardAcceleration(150);
 }
   }
 
