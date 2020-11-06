@@ -23,6 +23,7 @@ export default class AsteroidsScene extends Scene {
     this.ship = new Ship(this, 400, 300);
     this.keyboard = new Keyboard(this);
     this.ship.setMaxVelocity(350);
+    this.ship.setDrag(true, 0.99);
   }
 
   /**
@@ -33,6 +34,14 @@ export default class AsteroidsScene extends Scene {
     this.ship.setAcceleration(0, 0);
     this.ship.setAngularVelocity(0);
     this.ship.wrap();
+
+/*if (this.keyboard.isLeftPressed() || this.keyboard.isRightPressed() || this.keyboard.isDownPressed() || this.keyboard.isUpPressed()) {
+    let useDamping = false;
+    this.ship.setDrag(useDamping, 0.5);
+} else {
+    let useDamping = true;
+    this.ship.setDrag(useDamping, 0.5);
+} */
 
 if (this.keyboard.isLeftPressed()) {
     this.ship.setAngularVelocity(-180);
